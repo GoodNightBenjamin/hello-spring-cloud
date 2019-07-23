@@ -1,6 +1,12 @@
 spring:
-  application:
-    name: hello-spring-cloud-web-admin-feign
+  cloud:
+    config:
+      uri: http://localhost:8888
+      name: web-admin-feign-dev
+      label: master
+      profile: dev
+#  application:
+#    name: hello-spring-cloud-web-admin-feign
 #  thymeleaf:
 #    cache: false
 #    mode: LEGACYHTML5
@@ -8,27 +14,27 @@ spring:
 #    servlet:
 #      content-type: text/html
 
-server:
-  port: 8090
+#server:
+#  port: 8090
+#
+#feign:
+#  hystrix:
+#    enabled: true
+#
+#hystrix:
+#  command:
+#    default:
+#      circuitBreaker:
+##        当在配置时间窗口内达到此数量的失败后，进行短路。默认 20 个（10s 内请求失败数量达到 20 个，断路器开）
+#          requestVolumeThreshold: 5
+#
+##        短路多久以后开始尝试是否恢复，默认 5s
+#          sleepWindowInMilliseconds: 5
+#
+##        出错百分比阈值，当达到此阈值后，开始短路。默认 50%
+#          errorThresholdPercentage: 50
 
-feign:
-  hystrix:
-    enabled: true
-
-hystrix:
-  command:
-    default:
-      circuitBreaker:
-#        当在配置时间窗口内达到此数量的失败后，进行短路。默认 20 个（10s 内请求失败数量达到 20 个，断路器开）
-          requestVolumeThreshold: 5
-
-#        短路多久以后开始尝试是否恢复，默认 5s
-          sleepWindowInMilliseconds: 5
-
-#        出错百分比阈值，当达到此阈值后，开始短路。默认 50%
-          errorThresholdPercentage: 50
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
